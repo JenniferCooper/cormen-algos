@@ -1,6 +1,0 @@
-C:\Users\jcoop\OneDrive - Microsoft\cormen-algos\test\test\bin\Debug\test.exe.config
-C:\Users\jcoop\OneDrive - Microsoft\cormen-algos\test\test\bin\Debug\test.exe
-C:\Users\jcoop\OneDrive - Microsoft\cormen-algos\test\test\bin\Debug\test.pdb
-C:\Users\jcoop\OneDrive - Microsoft\cormen-algos\test\test\obj\Debug\test.csprojResolveAssemblyReference.cache
-C:\Users\jcoop\OneDrive - Microsoft\cormen-algos\test\test\obj\Debug\test.exe
-C:\Users\jcoop\OneDrive - Microsoft\cormen-algos\test\test\obj\Debug\test.pdb

@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{29fe2318-1869-4161-8911-54fe55ce221e}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>exercise4.1-1.py</StartupFile>
+    <StartupFile>exerciseC4S1Q1.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -24,7 +24,11 @@
     <Content Include="chap4.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="exercise4.1-1.py" />
+    <Compile Include="exerciseC4S1Q1-tests.py" />
+    <Compile Include="exerciseC4S1Q1.py" />
+    <Compile Include="helpers.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <Import Project="$(PtvsTargetsFile)" Condition="Exists($(PtvsTargetsFile))" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="!Exists($(PtvsTargetsFile))" />

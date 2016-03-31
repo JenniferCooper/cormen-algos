@@ -6,11 +6,11 @@ Created on Sun Mar 06 10:20:08 2016
 """
 
 """
-Implement both the bf and rec algo for the max-subarray prob. 
-What prob size n0 gives the crossover point at which the rec algo
-beats the bf algo?
+* Implement both the bf and rec algo for the max-subarray prob. 
+What prob size n0 gives the crossover point at which the rec algo beats the bf algo? 35-40
 Then, change the basecase of the rec algo to use the bf algo
 whenever prob size is less than n0. Does that change the crossover point?
+Seems to kick the crossover point to 45-50 range
 """
 import math
 import helpers
@@ -71,14 +71,13 @@ class MaxSubarrayImplementations:
         returns the maximum sum within the elements and their
         indices
         """
+        obj = MaxSubarrayImplementations()
         #base case: only one element
-        #print "array",  array[low:high+1]
-        #print "low", low
-        #print "high", high
         if high == low or array == []:
             return (low, high, array[low])
+        if len(array) < 40:
+               obj.maximumSubarrayBF(array, low, high)
         else:
-            obj = MaxSubarrayImplementations()
             mid = (low+high)/2
             (left_low, left_high, left_sum) = obj.maximumSubarrayRec(array, low, mid)
            # print "left", (left_low, left_high, left_sum)
@@ -113,32 +112,18 @@ def runTimeComparison(num):
         maxObj.maximumSubarrayRec(array, 0, (len(array) -1))
         meth_time = (time.clock() - start_time)
         rec_array.append(meth_time)
-    return bF_array
-    
-import matplotlib.pyplot as plt
-
-def plotTimes():
-    fig = plt.figure()
-    ax = fig.add_subplot(111)
-    x_points = xrange(0,9)
-    y_points = xrange(0,9)
-    p = ax.plot(x_points, y_points, 'b')
-    ax.set_xlabel('x-points')
-    ax.set_ylabel('y-points')
-    ax.set_title('Simple XY point plot')
-    fig.show()
+    return (bF_array, rec_array)
 
 start_time = time.time()
 print "starting"
-#print runTimeComparison(50)
-#plotTimes()
-fig = plt.figure()
-ax = fig.add_subplot(111)
-x_points = xrange(0,9)
-y_points = xrange(0,9)
-p = ax.plot(x_points, y_points, 'b')
-ax.set_xlabel('x-points')
-ax.set_ylabel('y-points')
-ax.set_title('Simple XY point plot')
-fig.show()
+time_tuple = runTimeComparison(200)
+#print time_tuple[0]
+#print time_tuple[1]
 print("--- %s seconds ---" % (time.time() - start_time))
+
+
+import matplotlib.pyplot as plt
+plt.plot(range(len(time_tuple[0])), time_tuple[0], 'r', range(len(time_tuple[0])), time_tuple[1], 'b')
+plt.ylabel('Rec')
+plt.xlabel('Array Length')
+plt.show()
